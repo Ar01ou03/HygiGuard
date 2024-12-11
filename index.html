@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System de Affichage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <div id="login-page">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form id="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+   
+    <div id="main-page" style="display: none;">
+        <header>
+            <img src="ala.jpg" alt="Logo" class="logo">
+            <h1>System de gestion des Normes Hygiguard</h1>
+            <nav>
+                <ul>
+                    <li onclick="showSection('results')">Affichage des Résultats</li>
+                    <li onclick="showSection('alerts')">Alertes</li>
+                    <li onclick="showSection('anomalies')">Détection des Anomalies</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+           
+            <section id="results">
+                <h2>Affichage des Résultats</h2>
+                <div class="chart-container">
+                    <canvas id="temperatureChart"></canvas>
+                    <div class="chart-data">
+                        <strong>Température Actuelle :</strong> <span id="temperatureValue">-- °C</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="humidityChart"></canvas>
+                    <div class="chart-data">
+            <strong>Humidité Actuelle :</strong> <span id="humidityValue">-- %</span>
+                  </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pressureChart"></canvas>
+                    <div class="chart-data">
+                        <strong>Pression Actuelle :</strong> <span id="pressureValue">-- hPa</span>
+                    </div>
+                </div>
+            </section>
+
+           
+            <section id="alerts" style="display: none;">
+                <h2>Alertes</h2>
+                <p>Aucune alerte actuellement.</p>
+            </section>
+
+            
+            <section id="anomalies" style="display: none;">
+                <h2>Détection des Anomalies</h2>
+                <p>Analyse des données en cours...</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
